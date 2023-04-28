@@ -25,7 +25,8 @@ public class EmailNotificationPlugin implements Plugin {
   public Iterable<NotificationServiceFactory> getNotificationServiceFactories() {
     return Arrays.asList(
         new EmailSmtpNotificationServiceFactory(),
-        new EmailSendgridNotificationServiceFactory()
+        new EmailSendgridNotificationServiceFactory(),
+            new WebhookNotificationServiceFactory()
     );
   }
 }
