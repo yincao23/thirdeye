@@ -11,32 +11,25 @@
  * See the License for the specific language governing permissions and limitations under
  * the License.
  */
+
 package ai.startree.thirdeye.detectionpipeline.operator;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import ai.startree.thirdeye.spi.datalayer.dto.EnumerationItemDTO;
+import ai.startree.thirdeye.spi.detection.v2.OperatorResult;
 import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class EnumeratorOperatorParams {
+/**
+ * TODO spyne - refactor the results as part of an interface. This is a temporary solution.
+ */
+public class EnumeratorResult implements OperatorResult {
 
-  private List<String> idKeys;
-  private String type;
+  private final List<EnumerationItemDTO> results;
 
-  public List<String> getIdKeys() {
-    return idKeys;
+  public EnumeratorResult(final List<EnumerationItemDTO> results) {
+    this.results = results;
   }
 
-  public EnumeratorOperatorParams setIdKeys(final List<String> idKeys) {
-    this.idKeys = idKeys;
-    return this;
-  }
-
-  public String getType() {
-    return type;
-  }
-
-  public EnumeratorOperatorParams setType(final String type) {
-    this.type = type;
-    return this;
+  public List<EnumerationItemDTO> getResults() {
+    return results;
   }
 }
